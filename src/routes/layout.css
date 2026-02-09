@@ -1,6 +1,4 @@
 @import "@fontsource-variable/urbanist";
-@import "tailwindcss";
-@plugin '@tailwindcss/typography';
 
 :root {
   --color-accent-red: #e53935;

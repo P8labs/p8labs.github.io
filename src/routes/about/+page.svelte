@@ -30,36 +30,48 @@
       </p>
     </section>
 
-    <section class="founder-section">
-      <h2>Founder</h2>
-      <div class="founder-card">
-        <div class="founder-avatar">
+    <section class="people-section">
+      <h2>People Behind P8labs</h2>
+
+      <div class="person">
+        <div class="person-avatar">
           <img
             src="https://priyanshupz.github.io/priyanshu.png"
             alt="Priyanshu Verma"
           />
         </div>
-        <div class="founder-info">
+        <div class="person-info">
           <h3>Priyanshu Verma</h3>
-          <p class="founder-title">Founder & Engineer</p>
-          <p class="founder-bio">
-            Priyanshu is a software engineer passionate about building developer
-            tools, systems software, and experimental projects. With experience
-            across web development, infrastructure, and AI, he founded P8labs to
-            explore ideas at the intersection of technology and craft.
+          <p class="person-role">Founder</p>
+          <p class="person-bio">
+            Founder of P8labs, focused on building intelligent software,
+            developer tools, and experimental systems while leading the lab's
+            vision and engineering direction.
           </p>
-          <div class="founder-links">
-            <a
-              href="https://priyanshupz.github.io"
-              target="_blank"
-              rel="noopener noreferrer">Portfolio</a
-            >
-            <a
-              href="https://github.com/priyanshupz"
-              target="_blank"
-              rel="noopener noreferrer">GitHub</a
-            >
-          </div>
+          <a
+            href="https://priyanshupz.github.io"
+            target="_blank"
+            rel="noopener noreferrer">Website →</a
+          >
+        </div>
+      </div>
+
+      <div class="person">
+        <div class="person-avatar">
+          <img src="/som.png" alt="Somveer Singh Verma" />
+        </div>
+        <div class="person-info">
+          <h3>Somveer Singh Verma</h3>
+          <p class="person-role">Strategic Advisor</p>
+          <p class="person-bio">
+            Provides strategic guidance and practical business perspective to
+            P8labs, supporting long-term thinking and validating key decisions.
+          </p>
+          <a
+            href="https://www.linkedin.com/in/somveer-singh-verma-66344843/"
+            target="_blank"
+            rel="noopener noreferrer">LinkedIn →</a
+          >
         </div>
       </div>
     </section>
@@ -87,6 +99,18 @@
         </div>
       </section>
     {/if}
+
+    <p class="closing-paragraph">
+      P8labs operates with a focus on thoughtful engineering, responsible
+      experimentation, and long-term independence. We build deliberately,
+      explore ideas with care, and share what we learn along the way.
+    </p>
+
+    <p class="closing-paragraph">
+      If this resonates with you and you'd like to be part of the journey, reach
+      out at
+      <a href="mailto:contact@p8labs.tech">contact@p8labs.tech</a>.
+    </p>
   </div>
 </div>
 
@@ -125,43 +149,52 @@
     margin-bottom: 1.5rem;
   }
 
-  .founder-card {
-    display: flex;
-    gap: 2rem;
+  .people-section {
     max-width: 800px;
-    padding: 2rem;
-    border: 1px solid #e5e5e5;
-    border-radius: 8px;
-    background: #fafafa;
   }
 
-  .founder-avatar {
+  .people-section h2 {
+    margin-bottom: 60px;
+  }
+
+  .person {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 4rem;
+  }
+
+  .person:last-child {
+    margin-bottom: 0;
+  }
+
+  .person-avatar {
     flex-shrink: 0;
   }
 
-  .founder-avatar img {
+  .person-avatar img {
     width: 120px;
     height: 120px;
     border-radius: 50%;
     object-fit: cover;
-    border: 3px solid #ffffff;
   }
 
-  .founder-info h3 {
+  .person-info h3 {
     font-size: 1.5rem;
     font-weight: 600;
     color: #1a1a1a;
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.5rem;
   }
 
-  .founder-title {
-    font-size: 1rem;
+  .person-role {
+    font-size: 0.9375rem;
     font-weight: 400;
     color: #999;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
     margin-bottom: 1rem;
   }
 
-  .founder-bio {
+  .person-bio {
     font-size: 1rem;
     font-weight: 300;
     color: #666;
@@ -169,15 +202,16 @@
     margin-bottom: 1.5rem;
   }
 
-  .founder-links {
-    display: flex;
-    gap: 1.5rem;
+  .person-info a {
+    font-size: 0.9375rem;
+    font-weight: 400;
+    color: #1a1a1a;
+    text-decoration: none;
+    border-bottom: 1px solid #1a1a1a;
   }
 
-  .founder-links a {
-    font-size: 0.9375rem;
-    font-weight: 500;
-    color: var(--color-accent-red);
+  .person-info a:hover {
+    opacity: 0.6;
   }
 
   .section-description {
@@ -226,6 +260,30 @@
     color: var(--color-accent-red);
   }
 
+  .closing-paragraph {
+    font-size: 1rem;
+    font-weight: 300;
+    color: #666;
+    line-height: 1.7;
+    max-width: 800px;
+    margin-top: 4rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .closing-paragraph:last-of-type {
+    margin-bottom: 0;
+  }
+
+  .closing-paragraph a {
+    color: #1a1a1a;
+    text-decoration: none;
+    border-bottom: 1px solid #1a1a1a;
+  }
+
+  .closing-paragraph a:hover {
+    opacity: 0.6;
+  }
+
   @media (max-width: 768px) {
     .page-header h1 {
       font-size: 2rem;
@@ -235,20 +293,16 @@
       font-size: 1.5rem;
     }
 
-    .founder-card {
+    .person {
       flex-direction: column;
-      align-items: center;
-      text-align: center;
-      padding: 1.5rem;
+      align-items: flex-start;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
     }
 
-    .founder-avatar img {
+    .person-avatar img {
       width: 100px;
       height: 100px;
-    }
-
-    .founder-links {
-      justify-content: center;
     }
 
     .contributors-grid {
