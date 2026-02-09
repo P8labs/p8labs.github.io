@@ -1,6 +1,6 @@
 import { writeFileSync } from "fs";
 
-const baseUrl = "https://p8labs.github.io";
+const baseUrl = "https://p8labs.tech";
 const currentDate = new Date().toISOString();
 
 const staticPages = [

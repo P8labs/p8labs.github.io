@@ -14,12 +14,39 @@ export interface Contributor {
 
 export const products: Product[] = [
   {
+    name: "tsbin-locam",
+    category: "Developer Tools",
+    status: "active",
+    url: "https://github.com/P8labs/tsbin-locam",
+    description:
+      "A Privacy-first QR scanner and camera utility that runs entirely in your browser. ",
+  },
+  {
     name: "tsbin-mail",
     category: "Developer Tools",
     status: "active",
     url: "https://github.com/P8labs/tsbin-mail",
     description:
       "A temporary email service that allows user to create disposible email addresses and recieve emails without registration.",
+  },
+  {
+    name: "tsbin",
+    category: "Developer Tools",
+    status: "active",
+    url: "https://github.com/P8labs/tsbin",
+    description: "A temp bin for free",
+  },
+  {
+    name: "jocasta",
+    category: "AI Tool",
+    status: "active",
+    url: "https://jocasta.live",
+  },
+  {
+    name: "tsbin-paper",
+    category: "Developer Tools",
+    status: "active",
+    url: "https://github.com/P8labs/tsbin-paper",
   },
   {
     name: "linkey",
@@ -52,14 +79,6 @@ export const products: Product[] = [
     url: "https://github.com/P8labs/sangeet",
     description:
       "A Desktop Music App which is supported by Jiosaavn music library.",
-  },
-  {
-    name: "circle_wallet",
-    category: "Blockchain",
-    status: "active",
-    url: "https://github.com/P8labs/circle_wallet",
-    description:
-      "This project is a custom wallet application built on Circle's Programmable Wallets platform.",
   },
   {
     name: "stock-charts",
@@ -98,19 +117,6 @@ export const products: Product[] = [
     url: "https://github.com/P8labs/GitPaste",
     description:
       "GitPaste is an Obsidian plugin designed to simplify handling and managing images in your notes.",
-  },
-  {
-    name: "tsbin",
-    category: "Developer Tools",
-    status: "active",
-    url: "https://github.com/P8labs/tsbin",
-    description: "A temp bin for free",
-  },
-  {
-    name: "tsbin-paper",
-    category: "Developer Tools",
-    status: "active",
-    url: "https://github.com/P8labs/tsbin-paper",
   },
 ];
 
