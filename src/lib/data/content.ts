@@ -14,6 +14,14 @@ export interface Contributor {
 
 export const products: Product[] = [
   {
+    name: "foxd",
+    category: "Automation",
+    status: "active",
+    url: "https://github.com/P8labs/foxd",
+    description:
+      "A lightweight Rust daemon for observing local networks, tracking device presence, and reacting to changes in real time.",
+  },
+  {
     name: "tsbin-locam",
     category: "Developer Tools",
     status: "active",
@@ -36,17 +44,22 @@ export const products: Product[] = [
     url: "https://github.com/P8labs/tsbin",
     description: "A temp bin for free",
   },
-  {
-    name: "jocasta",
-    category: "AI Tool",
-    status: "active",
-    url: "https://jocasta.live",
-  },
+
   {
     name: "tsbin-paper",
     category: "Developer Tools",
     status: "active",
     url: "https://github.com/P8labs/tsbin-paper",
+    description:
+      "A minimal tool to turn Markdown into beautiful images or publish it permanently on IPFS.",
+  },
+  {
+    name: "jocasta",
+    category: "AI Tool",
+    status: "active",
+    url: "https://jocasta.live",
+    description:
+      "A personal AI assistant that helps you manage documents, learn faster, and connect ideas, all with full control and end-to-end privacy. ",
   },
   {
     name: "linkey",
