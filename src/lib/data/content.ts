@@ -14,16 +14,32 @@ export interface Contributor {
 
 export const products: Product[] = [
   {
+    name: "dXon",
+    category: "Developer Tools",
+    status: "active",
+    url: "https://github.com/P8labs/dxon",
+    description:
+      "A small tool to spin up dev containers quickly. nothing fancy. just simple environments so your host system doesn't get polluted.",
+  },
+  {
+    name: "dockless",
+    category: "Infrastructure",
+    status: "active",
+    url: "https://github.com/P8labs/dockless",
+    description:
+      "A lightweight Platform as a Service (PaaS) designed for Raspberry Pi nodes, written in Rust.",
+  },
+  {
     name: "foxd",
     category: "Automation",
-    status: "active",
+    status: "prototype",
     url: "https://github.com/P8labs/foxd",
     description:
       "A lightweight Rust daemon for observing local networks, tracking device presence, and reacting to changes in real time.",
   },
   {
     name: "tsbin-locam",
-    category: "Developer Tools",
+    category: "Tools",
     status: "active",
     url: "https://github.com/P8labs/tsbin-locam",
     description:
@@ -31,7 +47,7 @@ export const products: Product[] = [
   },
   {
     name: "tsbin-mail",
-    category: "Developer Tools",
+    category: "Tools",
     status: "active",
     url: "https://github.com/P8labs/tsbin-mail",
     description:
@@ -39,7 +55,7 @@ export const products: Product[] = [
   },
   {
     name: "tsbin",
-    category: "Developer Tools",
+    category: "Tools",
     status: "active",
     url: "https://github.com/P8labs/tsbin",
     description: "A temp bin for free",
@@ -47,7 +63,7 @@ export const products: Product[] = [
 
   {
     name: "tsbin-paper",
-    category: "Developer Tools",
+    category: "Tools",
     status: "active",
     url: "https://github.com/P8labs/tsbin-paper",
     description:
@@ -64,7 +80,7 @@ export const products: Product[] = [
   {
     name: "linkey",
     category: "Developer Tools",
-    status: "active",
+    status: "archived",
     url: "https://github.com/P8labs/linkey",
     description:
       "Create a short version of your links. Free Forever Elevate your online presence with our powerful URL shortening service.",
@@ -80,7 +96,7 @@ export const products: Product[] = [
   {
     name: "sso-service",
     category: "Infrastructure",
-    status: "active",
+    status: "archived",
     url: "https://github.com/P8labs/sso-service",
     description:
       "The SSO Service is a robust Single Sign-On (SSO) solution designed to streamline authentication and authorization across multiple applications.",
@@ -88,7 +104,7 @@ export const products: Product[] = [
   {
     name: "sangeet",
     category: "Desktop App",
-    status: "active",
+    status: "archived",
     url: "https://github.com/P8labs/sangeet",
     description:
       "A Desktop Music App which is supported by Jiosaavn music library.",
@@ -96,14 +112,14 @@ export const products: Product[] = [
   {
     name: "stock-charts",
     category: "Finance",
-    status: "active",
+    status: "archived",
     url: "https://github.com/P8labs/stock-charts",
     description: "A stocks chart system powered by fluvio.",
   },
   {
     name: "Bhagwad-Gita-API",
     category: "API",
-    status: "active",
+    status: "archived",
     url: "https://github.com/P8labs/Bhagwad-Gita-API",
     description:
       "Project: Bhagavad Gita API Free to use Bhagavad Gita Slokhs and explainations in english and hindi languages",
@@ -119,7 +135,7 @@ export const products: Product[] = [
   {
     name: "build-journal",
     category: "Productivity",
-    status: "prototype",
+    status: "archived",
     url: "https://github.com/P8labs/build-journal",
     description: "A project jounal and snippet keeper.",
   },
