@@ -1,6 +1,6 @@
 import { writeFileSync } from "fs";
 
-const baseUrl = "https://p8labs.tech";
+const baseUrl = "https://p8labs.in";
 const currentDate = new Date().toISOString();
 
 const staticPages = [
@@ -14,15 +14,15 @@ const staticPages = [
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${staticPages
-  .map(
-    (page) => `  <url>
+    .map(
+      (page) => `  <url>
     <loc>${baseUrl}${page.url}</loc>
     <lastmod>${currentDate}</lastmod>
     <changefreq>${page.changefreq}</changefreq>
     <priority>${page.priority}</priority>
   </url>`,
-  )
-  .join("\n")}
+    )
+    .join("\n")}
 </urlset>`;
 
 writeFileSync("./static/sitemap.xml", sitemap);

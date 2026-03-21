@@ -66,7 +66,7 @@
       <p>Please send DMCA takedown notices to:</p>
       <p class="contact-info">
         <strong>Email:</strong>
-        <a href="mailto:hello@p8labs.tech">hello@p8labs.tech</a><br />
+        <a href="mailto:hello@p8labs.in">hello@p8labs.in</a><br />
         <strong>Subject Line:</strong> DMCA Takedown Notice
       </p>
       <p>
@@ -128,7 +128,7 @@
       <p class="contact-info">
         <strong>P8labs</strong><br />
         <strong>Email:</strong>
-        <a href="mailto:hello@p8labs.tech">hello@p8labs.tech</a>
+        <a href="mailto:hello@p8labs.in">hello@p8labs.in</a>
       </p>
     </section>
   </div>

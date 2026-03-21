@@ -13,6 +13,7 @@
     "sitemap": "node scripts/generate-sitemap.js"
   },
   "devDependencies": {
+    "@sveltejs/adapter-cloudflare": "^7.2.8",
     "@sveltejs/adapter-static": "^3.0.10",
     "@sveltejs/kit": "^2.50.1",
     "@sveltejs/vite-plugin-svelte": "^6.2.4",

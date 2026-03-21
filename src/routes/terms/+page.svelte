@@ -127,7 +127,7 @@
       </p>
       <p>
         <strong>Email:</strong>
-        <a href="mailto:hello@p8labs.tech">hello@p8labs.tech</a>
+        <a href="mailto:hello@p8labs.in">hello@p8labs.in</a>
       </p>
     </section>
   </div>

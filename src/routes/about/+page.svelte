@@ -35,10 +35,7 @@
 
       <div class="person">
         <div class="person-avatar">
-          <img
-            src="https://priyanshupz.github.io/priyanshu.png"
-            alt="Priyanshu Verma"
-          />
+          <img src="/people/priyanshu.png" alt="Priyanshu Verma" />
         </div>
         <div class="person-info">
           <h3>Priyanshu Verma</h3>
@@ -58,7 +55,7 @@
 
       <div class="person">
         <div class="person-avatar">
-          <img src="/som.png" alt="Somveer Singh Verma" />
+          <img src="/people/som.png" alt="Somveer Singh Verma" />
         </div>
         <div class="person-info">
           <h3>Somveer Singh Verma</h3>
@@ -109,7 +106,7 @@
     <p class="closing-paragraph">
       If this resonates with you and you'd like to be part of the journey, reach
       out at
-      <a href="mailto:contact@p8labs.tech">contact@p8labs.tech</a>.
+      <a href="mailto:contact@p8labs.in">contact@p8labs.in</a>.
     </p>
   </div>
 </div>

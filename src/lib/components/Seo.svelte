@@ -10,18 +10,16 @@
   export let robots: string = "index, follow";
 
   $: fullTitle = title === "P8labs" ? title : `${title} | P8labs`;
-  $: currentUrl = canonical || `https://p8labs.github.io${page.url.pathname}`;
-  $: ogImage = image.startsWith("http")
-    ? image
-    : `https://p8labs.github.io${image}`;
+  $: currentUrl = canonical || `https://p8labs.in${page.url.pathname}`;
+  $: ogImage = image.startsWith("http") ? image : `https://p8labs.in${image}`;
 
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: "P8labs",
-    url: "https://p8labs.github.io",
-    logo: "https://p8labs.github.io/logo.png",
-    sameAs: ["https://github.com/P8labs"],
+    url: "https://p8labs.in",
+    logo: "https://p8labs.in/logo.png",
+    sameAs: ["https://github.com/P8labs", "https://p8labs.tech"],
     description: description,
   };
 </script>

@@ -11,7 +11,7 @@
     { href: "/about", label: "About" },
     { href: "/terms", label: "Terms" },
     { href: "/dmca", label: "DMCA" },
-    { href: "mailto:hello@p8labs.tech", label: "Contact" },
+    { href: "mailto:hello@p8labs.in", label: "Contact" },
   ];
 
   const currentPath = $derived(page.url.pathname);
