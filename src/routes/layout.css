@@ -3,6 +3,11 @@
 :root {
   --color-accent-red: #e53935;
   --color-accent-orange: #ff6a00;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+  --surface: rgba(255, 255, 255, 0.82);
+  --surface-border: rgba(30, 30, 30, 0.08);
 }
 
 * {
@@ -26,7 +31,10 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background: #ffffff;
+  background:
+    radial-gradient(circle at 2% -8%, rgba(255, 160, 72, 0.2), transparent 30%),
+    radial-gradient(circle at 98% 6%, rgba(229, 57, 53, 0.14), transparent 26%),
+    linear-gradient(180deg, #fffdfb 0%, #ffffff 45%);
   color: #1a1a1a;
   font-size: 16px;
   font-weight: 400;
@@ -60,9 +68,14 @@ a:hover {
 
 /* Utilities */
 .container {
-  max-width: 1100px;
+  max-width: 1120px;
   margin: 0 auto;
   padding: 0 2rem;
+}
+
+.page,
+main section {
+  position: relative;
 }
 
 @media (max-width: 768px) {

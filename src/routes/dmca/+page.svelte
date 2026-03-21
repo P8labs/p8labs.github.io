@@ -1,19 +1,45 @@
 <script lang="ts">
   import Seo from "$lib/components/Seo.svelte";
+
+  const dmcaSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: "DMCA Policy | P8labs",
+    url: "https://p8labs.in/dmca",
+    description: "DMCA takedown notice information for P8labs.",
+    about: {
+      "@type": "Thing",
+      name: "DMCA Policy",
+    },
+  };
 </script>
 
 <Seo
   title="DMCA"
   description="DMCA takedown notice information for P8labs."
   image="/og/home.svg"
+  schema={dmcaSchema}
 />
 
 <div class="page legal-page">
   <div class="container">
-    <div class="page-header">
+    <header class="page-header">
+      <p class="eyebrow">Legal</p>
       <h1>DMCA Policy</h1>
       <p class="last-updated">Last updated: February 3, 2026</p>
-    </div>
+      <p class="intro">
+        If you need to report copyright infringement on material distributed by
+        P8labs, use this policy and the contact channel below.
+      </p>
+    </header>
+
+    <section class="cta-strip">
+      <p>
+        Send DMCA notices to <a href="mailto:hello@p8labs.in">hello@p8labs.in</a
+        >
+        with subject "DMCA Takedown Notice".
+      </p>
+    </section>
 
     <section class="legal-section">
       <h2>Digital Millennium Copyright Act (DMCA) Notice</h2>
@@ -150,6 +176,21 @@
     margin-bottom: 0.5rem;
   }
 
+  .eyebrow {
+    margin: 0 0 0.4rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.76rem;
+    color: #8b5d2f;
+    font-weight: 600;
+  }
+
+  .intro {
+    margin: 0;
+    color: #5f5f5f;
+    max-width: 70ch;
+  }
+
   .last-updated {
     font-size: 0.9375rem;
     font-weight: 300;
@@ -159,6 +200,11 @@
   .legal-section {
     margin-bottom: 3rem;
     max-width: 800px;
+    border: none;
+    border-radius: 0;
+    padding: 0 0 1.2rem;
+    background: transparent;
+    border-bottom: 1px solid #efefef;
   }
 
   .legal-section h2 {
@@ -191,9 +237,24 @@
 
   .contact-info {
     padding: 1.5rem;
-    background: #fafafa;
+    background: transparent;
     border-left: 3px solid var(--color-accent-red);
-    border-radius: 4px;
+    border-radius: 0;
+  }
+
+  .cta-strip {
+    margin-bottom: 2rem;
+    border: none;
+    border-radius: 0;
+    padding: 0 0 0.8rem;
+    background: transparent;
+    border-bottom: 1px solid #ececec;
+    max-width: 800px;
+  }
+
+  .cta-strip p {
+    margin: 0;
+    color: #4d4d4d;
   }
 
   .legal-section a {

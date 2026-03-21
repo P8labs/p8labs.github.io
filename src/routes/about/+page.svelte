@@ -1,11 +1,33 @@
 <script lang="ts">
   import Seo from "$lib/components/Seo.svelte";
   import { contributors } from "$lib/data/content";
+
+  const aboutSchema = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    name: "About P8labs",
+    url: "https://p8labs.in/about",
+    mainEntity: {
+      "@type": "Organization",
+      name: "P8labs",
+      url: "https://p8labs.in",
+      founder: {
+        "@type": "Person",
+        name: "Priyanshu Verma",
+        url: "https://priyanshupz.github.io",
+      },
+      employee: contributors.map((contributor) => ({
+        "@type": "Person",
+        name: contributor.name,
+      })),
+    },
+  };
 </script>
 
 <Seo
   title="About"
   description="Learn about P8labs, an independent technology lab building experimental software and tools."
+  schema={aboutSchema}
 />
 
 <div class="page">
@@ -228,7 +250,7 @@
   .contributor-card {
     padding: 1.5rem;
     border: 1px solid #e5e5e5;
-    border-radius: 8px;
+    border-radius: 6px;
     background: #ffffff;
     transition: border-color 0.2s ease;
   }

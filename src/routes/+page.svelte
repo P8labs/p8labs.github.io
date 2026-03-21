@@ -1,117 +1,181 @@
 <script lang="ts">
   import Seo from "$lib/components/Seo.svelte";
-  import { products } from "$lib/data/content";
+  import { getProductId, products } from "$lib/data/content";
 
   const activeProjects = products.filter((p) => p.status === "active").length;
+  const stableProjects = products.filter((p) => p.status === "stable").length;
   const totalProjects = products.length;
 
-  const featuredProjects = products
+  const latestActive = [...products]
+    .reverse()
     .filter((p) => p.status === "active")
-    .slice(0, 3);
+    .slice(0, 4);
 
-  const capabilities = [
+  const buildAreas = [
     {
-      title: "Open Source",
+      title: "Custom Product Engineering",
       description:
-        "Building tools and systems available to the community under permissive licenses.",
+        "From idea to production systems with practical architecture, strong delivery rhythm, and clean maintainable code.",
     },
     {
-      title: "Experimental",
+      title: "Developer Tools",
       description:
-        "Exploring cutting-edge technologies and innovative approaches to common problems.",
+        "Tools that remove friction for teams and independent developers building fast-moving products.",
     },
     {
-      title: "Production Ready",
+      title: "Data and Analytics",
       description:
-        "Creating reliable, scalable solutions for real-world applications.",
+        "Telemetry and analytics systems that help teams understand product usage and make better decisions.",
     },
   ];
+
+  const latestActiveSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "Latest Active Projects",
+    itemListOrder: "https://schema.org/ItemListOrderDescending",
+    itemListElement: latestActive.map((project, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      item: {
+        "@type": "SoftwareApplication",
+        name: project.name,
+        url: `https://p8labs.in/product/${getProductId(project)}`,
+        applicationCategory: project.category,
+      },
+    })),
+  };
 </script>
 
 <Seo
   title="P8labs"
-  description="P8labs is an independent technology lab building software, developer tools, and experimental projects."
+  description="P8labs builds software for businesses, ships open products, and collaborates with independent developers."
   image="/og/banner.png"
+  schema={latestActiveSchema}
+  includeWebSiteSchema={true}
 />
 
-<div class="hero">
-  <div class="background-effect">
-    <div class="gradient-orb orb-1"></div>
-    <div class="gradient-orb orb-2"></div>
-    <div class="gradient-orb orb-3"></div>
-  </div>
-
-  <div class="container">
-    <div class="hero-content">
-      <h1 class="hero-title">P8labs</h1>
-      <p class="hero-subtitle">Independent technology lab.</p>
-      <p class="hero-description">
-        Building software, developer tools, and experimental systems. Some
-        projects are open-source; some are private intellectual property.
-      </p>
-      <div class="hero-cta">
-        <a href="/products" class="cta-link">Explore Products →</a>
-      </div>
+<section class="intro-surface">
+  <div class="hero-wrap">
+    <div class="container">
+      <section class="hero">
+        <p class="eyebrow">p8labs.tech is now p8labs.in</p>
+        <h1>Engineering software for teams, products, and bold ideas.</h1>
+        <p class="hero-description">
+          We build custom software for businesses, ship open products, and help
+          independent developers turn strong ideas into real systems.
+        </p>
+        <p class="personal-note">
+          Built with care by real people at P8labs, with a focus on clear code,
+          thoughtful UX, and practical outcomes.
+        </p>
+        <div class="hero-actions">
+          <a href="/build" class="btn btn-primary">Start a Build Project</a>
+          <a href="/products" class="btn btn-secondary">Explore Products</a>
+          <a href="/contact" class="btn btn-ghost">Contact</a>
+        </div>
+      </section>
     </div>
   </div>
-</div>
 
-<section class="stats-section">
-  <div class="container">
-    <div class="stats-grid">
-      <div class="stat-card">
-        <div class="stat-number">{activeProjects}</div>
-        <div class="stat-label">Active Projects</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number">{totalProjects}</div>
-        <div class="stat-label">Total Projects</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number">Open</div>
-        <div class="stat-label">Source Focus</div>
+  <section class="stats-section">
+    <div class="container">
+      <div class="stats-shell">
+        <p class="stats-kicker">At a glance</p>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <p class="stat-label">Active Projects</p>
+            <div class="stat-main">
+              <div class="stat-number">{activeProjects}</div>
+              <span class="stat-unit">live</span>
+            </div>
+            <p class="stat-note">Receiving updates and feature work</p>
+          </div>
+          <div class="stat-card">
+            <p class="stat-label">Stable Projects</p>
+            <div class="stat-main">
+              <div class="stat-number">{stableProjects}</div>
+              <span class="stat-unit">ready</span>
+            </div>
+            <p class="stat-note">Production-safe with maintained quality</p>
+          </div>
+          <div class="stat-card">
+            <p class="stat-label">Total Projects</p>
+            <div class="stat-main">
+              <div class="stat-number">{totalProjects}</div>
+              <span class="stat-unit">built</span>
+            </div>
+            <p class="stat-note">Across products, tooling, and data systems</p>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
 </section>
 
-<section class="capabilities-section">
+<section class="active-section">
   <div class="container">
-    <h2 class="section-title">What We Build</h2>
-    <div class="capabilities-grid">
-      {#each capabilities as capability}
-        <div class="capability-card">
-          <h3>{capability.title}</h3>
-          <p>{capability.description}</p>
-        </div>
+    <div class="section-header">
+      <h2>Latest Active Projects</h2>
+      <a href="/products">View all products</a>
+    </div>
+    <div class="project-list">
+      {#each latestActive as project}
+        {@const productId = getProductId(project)}
+        <article class="project-row">
+          <div>
+            <h3><a href={`/product/${productId}`}>{project.name}</a></h3>
+            {#if project.description}
+              <p>{project.description}</p>
+            {/if}
+          </div>
+          <div class="row-right">
+            <span>{project.category}</span>
+            <a href={`/product/${productId}`}>README</a>
+          </div>
+        </article>
       {/each}
     </div>
   </div>
 </section>
 
-<section class="featured-section">
+<section class="service-section">
   <div class="container">
     <div class="section-header">
-      <h2 class="section-title">Featured Projects</h2>
-      <a href="/products" class="view-all-link">View All →</a>
+      <h2>Build With P8labs</h2>
     </div>
-    <div class="featured-grid">
-      {#each featuredProjects as project}
-        <a
-          href={project.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="project-card"
-        >
-          <div class="project-header">
-            <h3>{project.name}</h3>
-            <span class="project-category">{project.category}</span>
-          </div>
-          {#if project.description}
-            <p class="project-description">{project.description}</p>
-          {/if}
-          <span class="project-link-text">View Project →</span>
-        </a>
+    <div class="service-list">
+      <article class="service-row">
+        <h3>For Businesses</h3>
+        <p>
+          Build custom software systems with practical architecture and fast,
+          iterative delivery.
+        </p>
+        <a href="mailto:build@p8labs.in">build@p8labs.in</a>
+      </article>
+      <article class="service-row">
+        <h3>For Independent Developers</h3>
+        <p>
+          Pitch your product idea or prototype and collaborate with us on
+          shipping it to production.
+        </p>
+        <a href="/build">See collaboration details</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="what-build-section">
+  <div class="container">
+    <div class="section-header">
+      <h2>What We Build</h2>
+    </div>
+    <div class="build-grid">
+      {#each buildAreas as area}
+        <article class="build-item">
+          <h3>{area.title}</h3>
+          <p>{area.description}</p>
+        </article>
       {/each}
     </div>
   </div>
@@ -119,438 +183,520 @@
 
 <section class="team-section">
   <div class="container">
-    <div class="team-content">
-      <h2 class="section-title">About the Team</h2>
-      <p class="team-description">
-        P8labs was founded by <a
+    <div class="section-header">
+      <h2>About the Team</h2>
+    </div>
+    <div class="team-copy">
+      <p>
+        P8labs was founded by
+        <a
           href="https://priyanshupz.github.io"
           target="_blank"
-          rel="noopener noreferrer">Priyanshu Verma</a
-        >, a software engineer passionate about building developer tools,
-        systems software, and experimental projects. With experience across web
-        development, infrastructure, and AI, P8labs explores ideas at the
-        intersection of technology and craft.
+          rel="noopener noreferrer"
+        >
+          Priyanshu Verma
+        </a>, focused on building useful software, developer tools, and systems
+        that solve real operational problems.
       </p>
-      <p class="team-description">
-        We collaborate with talented contributors and the open-source community
-        to bring these projects to life. Every project is an opportunity to
-        learn, experiment, and push boundaries.
+      <p>
+        We collaborate with contributors and independent developers to explore
+        strong ideas, ship them with quality, and keep improving through open
+        feedback loops.
       </p>
-      <div class="team-cta">
-        <a href="/about" class="secondary-link">Learn More About Us →</a>
+      <a href="/about" class="team-link">Learn more about us</a>
+    </div>
+  </div>
+</section>
+
+<section class="social-section">
+  <div class="container">
+    <div class="social-card">
+      <div class="section-header">
+        <h2>Connect With P8labs</h2>
+      </div>
+      <p class="social-description">
+        Follow product updates, releases, engineering notes, and collaboration
+        opportunities.
+      </p>
+      <div class="social-links">
+        <a
+          href="https://www.linkedin.com/company/p8labs"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          LinkedIn
+        </a>
+        <a href="https://x.com/P8labs" target="_blank" rel="noopener noreferrer"
+          >X</a
+        >
+        <a
+          href="https://peerlist.io/company/p8labs"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Peerlist
+        </a>
       </div>
     </div>
   </div>
 </section>
 
 <style>
-  .hero {
-    padding: 8rem 0 10rem;
-    background: #ffffff;
+  .intro-surface {
     position: relative;
     overflow: hidden;
   }
 
-  .background-effect {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 0;
-    pointer-events: none;
+  .hero-wrap {
+    padding: 2.75rem 0 2rem;
   }
 
-  .gradient-orb {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(80px);
-    opacity: 0.15;
-    animation: float 20s ease-in-out infinite;
+  .hero {
+    border: none;
+    border-radius: 8px;
+    padding: 1.4rem;
+    background: transparent;
+    backdrop-filter: blur(6px);
   }
 
-  .orb-1 {
-    width: 500px;
-    height: 500px;
-    background: radial-gradient(circle, #e53935 0%, transparent 70%);
-    top: -250px;
-    left: -100px;
-    animation-delay: 0s;
-  }
-
-  .orb-2 {
-    width: 400px;
-    height: 400px;
-    background: radial-gradient(circle, #ff6a00 0%, transparent 70%);
-    top: 200px;
-    right: -150px;
-    animation-delay: -7s;
-  }
-
-  .orb-3 {
-    width: 350px;
-    height: 350px;
-    background: radial-gradient(circle, #e53935 0%, transparent 70%);
-    bottom: -100px;
-    left: 50%;
-    transform: translateX(-50%);
-    animation-delay: -14s;
-  }
-
-  @keyframes float {
-    0%,
-    100% {
-      transform: translate(0, 0) scale(1);
-    }
-    33% {
-      transform: translate(30px, -30px) scale(1.1);
-    }
-    66% {
-      transform: translate(-20px, 20px) scale(0.9);
-    }
-  }
-
-  .hero-content {
-    max-width: 700px;
-    margin: 0 auto;
-    text-align: center;
-    position: relative;
-    z-index: 1;
-  }
-
-  .hero-title {
-    font-size: 4rem;
+  .eyebrow {
+    margin: 0 0.23rem 0.46rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.76rem;
+    color: #8b5d2f;
     font-weight: 600;
-    color: #1a1a1a;
-    margin-bottom: 1rem;
-    letter-spacing: -0.02em;
   }
 
-  .hero-subtitle {
-    font-size: 1.5rem;
-    font-weight: 400;
-    color: #666;
-    margin-bottom: 2rem;
+  h1 {
+    margin-bottom: 0.75rem;
+    font-size: clamp(2rem, 5vw, 3.8rem);
+    line-height: 1.12;
+    max-width: 18ch;
+    color: #161616;
+    text-wrap: balance;
   }
 
   .hero-description {
-    font-size: 1.125rem;
-    font-weight: 300;
-    color: #666;
+    font-size: 1rem;
+    color: #454545;
     line-height: 1.7;
-    margin-bottom: 3rem;
+    max-width: 62ch;
+    margin-bottom: 0.4rem;
   }
 
-  .hero-cta {
-    margin-top: 3rem;
+  .personal-note {
+    margin: 0 0 1rem;
+    font-size: 0.92rem;
+    color: #555;
+    max-width: 64ch;
   }
 
-  .cta-link {
-    display: inline-block;
-    font-size: 1.125rem;
-    font-weight: 500;
-    color: var(--color-accent-red);
-    padding: 0.75rem 2rem;
-    border: 2px solid var(--color-accent-red);
-    border-radius: 4px;
-    transition: all 0.2s ease;
+  .hero-actions {
+    display: flex;
+    gap: 0.7rem;
+    flex-wrap: wrap;
   }
 
-  .cta-link:hover {
-    background: var(--color-accent-red);
-    color: #ffffff;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(229, 57, 53, 0.2);
+  .btn {
+    border-radius: 7px;
+    padding: 0.52rem 0.92rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: none;
+    transition:
+      transform 0.18s ease,
+      box-shadow 0.2s ease,
+      filter 0.2s ease;
   }
 
-  /* Stats Section */
+  .btn-primary {
+    background: linear-gradient(135deg, #e45834 0%, #df2f4c 100%);
+    color: #fff;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(223, 47, 76, 0.25);
+    color: #fff;
+  }
+
+  .btn-secondary {
+    background: #ffffff;
+    color: #1d1d1d;
+    border: 1px solid #e0e0e0;
+  }
+
+  .btn-ghost {
+    background: #fff7ef;
+    color: #5e3f20;
+    border: 1px solid #f0d8be;
+  }
+
+  .btn-secondary:hover,
+  .btn-ghost:hover {
+    transform: translateY(-1px);
+    filter: brightness(0.98);
+  }
+
   .stats-section {
-    padding: 4rem 0;
-    background: #fafafa;
-    border-top: 1px solid #e5e5e5;
+    padding: 0;
+    margin: 0;
+  }
+
+  .stats-shell {
+    padding: 0;
+    background: transparent;
+    border: none;
+  }
+
+  .stats-kicker {
+    margin: 0 0 0.7rem;
+    font-size: 0.73rem;
+    font-weight: 700;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: #8f5e2c;
   }
 
   .stats-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 3rem;
-    max-width: 900px;
-    margin: 0 auto;
+    gap: 1rem;
+    border-top: 1px solid #ececec;
+    border-bottom: 1px solid #ececec;
   }
 
   .stat-card {
-    text-align: center;
+    text-align: left;
+    border: none;
+    border-right: 1px solid #ececec;
+    border-radius: 0;
+    padding: 0.85rem 0.9rem;
+    background: transparent;
+  }
+
+  .stat-card:last-child {
+    border-right: none;
+  }
+
+  .stat-main {
+    display: flex;
+    align-items: baseline;
+    gap: 0.35rem;
   }
 
   .stat-number {
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: 600;
     color: var(--color-accent-red);
-    margin-bottom: 0.5rem;
-    letter-spacing: -0.02em;
+    line-height: 1;
   }
 
   .stat-label {
-    font-size: 0.9375rem;
-    font-weight: 400;
-    color: #666;
+    margin: 0 0 0.35rem;
+    font-size: 0.78rem;
+    color: #5e5e5e;
     text-transform: uppercase;
     letter-spacing: 0.05em;
+    font-weight: 700;
   }
 
-  /* Capabilities Section */
-  .capabilities-section {
-    padding: 6rem 0;
-    background: #ffffff;
-  }
-
-  .section-title {
-    font-size: 2.5rem;
+  .stat-unit {
+    font-size: 0.8rem;
+    color: #8a8a8a;
     font-weight: 600;
-    color: #1a1a1a;
-    text-align: center;
-    margin-bottom: 4rem;
-    letter-spacing: -0.02em;
   }
 
-  .capabilities-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2.5rem;
-    max-width: 1000px;
-    margin: 0 auto;
+  .stat-note {
+    margin: 0.35rem 0 0;
+    font-size: 0.82rem;
+    color: #5f5f5f;
+    line-height: 1.5;
   }
 
-  .capability-card {
-    padding: 2rem;
-    background: #fafafa;
-    border: 1px solid #e5e5e5;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-  }
-
-  .capability-card:hover {
-    border-color: var(--color-accent-red);
-    transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
-  }
-
-  .capability-card h3 {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: #1a1a1a;
-    margin-bottom: 0.75rem;
-  }
-
-  .capability-card p {
-    font-size: 0.9375rem;
-    font-weight: 300;
-    color: #666;
-    line-height: 1.7;
-    margin: 0;
-  }
-
-  /* Featured Section */
-  .featured-section {
-    padding: 6rem 0;
-    background: #fafafa;
-    border-top: 1px solid #e5e5e5;
+  .active-section,
+  .service-section,
+  .what-build-section,
+  .team-section,
+  .social-section {
+    padding: 2rem 0;
   }
 
   .section-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 3rem;
-  }
-
-  .view-all-link {
-    font-size: 1rem;
-    font-weight: 500;
-    color: var(--color-accent-red);
-    text-decoration: none;
-    transition: color 0.2s ease;
-  }
-
-  .view-all-link:hover {
-    color: var(--color-accent-orange);
-  }
-
-  .featured-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-  }
-
-  .project-card {
-    padding: 2rem;
-    background: #ffffff;
-    border: 1px solid #e5e5e5;
-    border-radius: 8px;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .project-card:hover {
-    border-color: var(--color-accent-red);
-    transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-  }
-
-  .project-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: start;
     margin-bottom: 1rem;
-    gap: 1rem;
+    min-height: 2rem;
   }
 
-  .project-card h3 {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: #1a1a1a;
+  .section-header h2 {
+    font-size: 1.8rem;
     margin: 0;
   }
 
-  .project-category {
+  .project-list {
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.88);
+  }
+
+  .project-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+    border-bottom: 1px solid #ececec;
+    transition: background-color 0.18s ease;
+  }
+
+  .project-row:last-child {
+    border-bottom: none;
+  }
+
+  .project-row:hover {
+    background: #fcfcfc;
+  }
+
+  .project-row h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.15rem;
+  }
+
+  .project-row p {
+    margin: 0;
+    color: #5d5d5d;
+    font-size: 0.94rem;
+    max-width: 70ch;
+  }
+
+  .row-right {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    min-width: 180px;
+  }
+
+  .row-right span {
     font-size: 0.75rem;
-    font-weight: 600;
-    color: #999;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    white-space: nowrap;
+    border-radius: 999px;
+    padding: 0.2rem 0.55rem;
+    background: #f2f2f2;
+    color: #444;
+    font-weight: 600;
   }
 
-  .project-description {
-    font-size: 0.9375rem;
-    font-weight: 300;
-    color: #666;
-    line-height: 1.7;
-    margin-bottom: 1.5rem;
-    flex-grow: 1;
+  .row-right a {
+    font-size: 0.82rem;
+    border-radius: 7px;
+    border: 1px solid #d9d9d9;
+    color: #333;
+    padding: 0.3rem 0.6rem;
+    font-weight: 600;
+    background: #fff;
   }
 
-  .project-link-text {
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: var(--color-accent-red);
-    transition: color 0.2s ease;
+  .service-section .section-header {
+    justify-content: flex-start;
   }
 
-  .project-card:hover .project-link-text {
-    color: var(--color-accent-orange);
+  .service-section h2 {
+    font-size: 1.8rem;
   }
 
-  /* Team Section */
-  .team-section {
-    padding: 6rem 0;
-    background: #ffffff;
+  .service-list {
+    border: none;
+    border-radius: 8px;
+    overflow: hidden;
+    background: transparent;
   }
 
-  .team-content {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
+  .service-row {
+    padding: 1rem;
+    border-bottom: 1px solid #ececec;
+    background: transparent;
   }
 
-  .team-description {
-    font-size: 1.125rem;
-    font-weight: 300;
-    color: #666;
-    line-height: 1.8;
-    margin-bottom: 1.5rem;
+  .service-row:last-child {
+    border-bottom: none;
   }
 
-  .team-description a {
-    color: var(--color-accent-red);
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.2s ease;
+  .service-row h3 {
+    margin-bottom: 0.5rem;
   }
 
-  .team-description a:hover {
-    color: var(--color-accent-orange);
+  .service-row p {
+    margin-bottom: 0.7rem;
+    color: #5c5c5c;
   }
 
-  .team-cta {
-    margin-top: 2.5rem;
+  .build-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
   }
 
-  .secondary-link {
-    font-size: 1rem;
-    font-weight: 500;
-    color: var(--color-accent-red);
-    text-decoration: none;
-    transition: color 0.2s ease;
+  .build-item {
+    padding: 0.2rem 0 1rem;
+    border-bottom: 1px solid #ececec;
   }
 
-  .secondary-link:hover {
-    color: var(--color-accent-orange);
+  .build-item:last-child {
+    border-bottom: none;
   }
 
-  @media (max-width: 1024px) {
-    .capabilities-grid,
-    .featured-grid {
-      grid-template-columns: repeat(2, 1fr);
+  .build-item h3 {
+    margin-bottom: 0.45rem;
+    font-size: 1.08rem;
+  }
+
+  .build-item p {
+    margin: 0;
+    color: #5a5a5a;
+    font-size: 0.94rem;
+    line-height: 1.65;
+  }
+
+  .team-copy {
+    max-width: 78ch;
+  }
+
+  .team-copy p {
+    color: #575757;
+    line-height: 1.72;
+    margin-bottom: 0.8rem;
+  }
+
+  .team-link {
+    display: inline-flex;
+    margin-top: 0.2rem;
+    font-weight: 600;
+  }
+
+  .social-section .section-header {
+    justify-content: flex-start;
+  }
+
+  .social-card {
+    border: none;
+    border-radius: 8px;
+    padding: 0;
+    background: transparent;
+  }
+
+  .social-card h2 {
+    font-size: 1.35rem;
+  }
+
+  .social-description {
+    margin: 0 0 0.8rem;
+    color: #5d5d5d;
+    max-width: 65ch;
+  }
+
+  .social-links {
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+  }
+
+  .hero,
+  .stats-grid,
+  .active-section,
+  .service-section,
+  .social-section {
+    animation: riseIn 0.45s ease both;
+  }
+
+  .stats-grid {
+    animation-delay: 0.05s;
+  }
+
+  .active-section {
+    animation-delay: 0.09s;
+  }
+
+  .service-section {
+    animation-delay: 0.12s;
+  }
+
+  .social-section {
+    animation-delay: 0.14s;
+  }
+
+  @keyframes riseIn {
+    from {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero,
+    .stats-grid,
+    .active-section,
+    .service-section,
+    .social-section,
+    .btn,
+    .project-row,
+    .row-right a {
+      animation: none;
+      transition: none;
     }
   }
 
   @media (max-width: 768px) {
-    .hero {
-      padding: 4rem 0 6rem;
-    }
-
-    .hero-title {
-      font-size: 2.5rem;
-    }
-
-    .hero-subtitle {
-      font-size: 1.25rem;
-    }
-
-    .hero-description {
-      font-size: 1rem;
+    .hero-wrap {
+      padding-top: 2rem;
     }
 
     .stats-grid {
       grid-template-columns: 1fr;
-      gap: 2rem;
+      gap: 0;
     }
 
-    .section-title {
-      font-size: 2rem;
+    .stats-shell {
+      padding: 0;
     }
 
-    .capabilities-grid,
-    .featured-grid {
-      grid-template-columns: 1fr;
+    .stat-card {
+      border-right: none;
+      border-bottom: 1px solid #ececec;
+      padding: 0.85rem 0;
+    }
+
+    .stat-card:last-child {
+      border-bottom: none;
     }
 
     .section-header {
       flex-direction: column;
-      align-items: start;
-      gap: 1rem;
+      align-items: flex-start;
+      gap: 0.5rem;
     }
 
-    .gradient-orb {
-      filter: blur(60px);
+    .project-row {
+      flex-direction: column;
     }
 
-    .orb-1 {
-      width: 300px;
-      height: 300px;
+    .build-grid {
+      grid-template-columns: 1fr;
     }
 
-    .orb-2 {
-      width: 250px;
-      height: 250px;
-    }
-
-    .orb-3 {
-      width: 200px;
-      height: 200px;
+    .row-right {
+      justify-content: flex-start;
+      min-width: 0;
     }
   }
 </style>

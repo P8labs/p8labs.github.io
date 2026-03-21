@@ -1,19 +1,43 @@
 <script lang="ts">
   import Seo from "$lib/components/Seo.svelte";
+
+  const termsSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: "Terms of Service | P8labs",
+    url: "https://p8labs.in/terms",
+    description: "Terms of Service for P8labs products and services.",
+    about: {
+      "@type": "Thing",
+      name: "Terms of Service",
+    },
+  };
 </script>
 
 <Seo
   title="Terms of Service"
   description="Terms of Service for P8labs products and services."
   image="/og/home.svg"
+  schema={termsSchema}
 />
 
 <div class="page legal-page">
   <div class="container">
-    <div class="page-header">
+    <header class="page-header">
+      <p class="eyebrow">Legal</p>
       <h1>Terms of Service</h1>
       <p class="last-updated">Last updated: February 3, 2026</p>
-    </div>
+      <p class="intro">
+        These terms govern use of products and services published by P8labs.
+      </p>
+    </header>
+
+    <section class="cta-strip">
+      <p>
+        Need a custom software solution for your business?
+        <a href="mailto:build@p8labs.in">build@p8labs.in</a>
+      </p>
+    </section>
 
     <section class="legal-section">
       <h2>1. Definitions</h2>
@@ -149,6 +173,21 @@
     margin-bottom: 0.5rem;
   }
 
+  .eyebrow {
+    margin: 0 0 0.4rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.76rem;
+    color: #8b5d2f;
+    font-weight: 600;
+  }
+
+  .intro {
+    margin: 0;
+    color: #5f5f5f;
+    max-width: 65ch;
+  }
+
   .last-updated {
     font-size: 0.9375rem;
     font-weight: 300;
@@ -158,6 +197,11 @@
   .legal-section {
     margin-bottom: 3rem;
     max-width: 800px;
+    border: none;
+    border-radius: 0;
+    padding: 0 0 1.2rem;
+    background: transparent;
+    border-bottom: 1px solid #efefef;
   }
 
   .legal-section h2 {
@@ -178,6 +222,21 @@
   .legal-section ul {
     margin: 1rem 0;
     padding-left: 1.5rem;
+  }
+
+  .cta-strip {
+    margin-bottom: 2rem;
+    border: none;
+    border-radius: 0;
+    padding: 0 0 0.8rem;
+    background: transparent;
+    border-bottom: 1px solid #ececec;
+    max-width: 800px;
+  }
+
+  .cta-strip p {
+    margin: 0;
+    color: #4d4d4d;
   }
 
   .legal-section li {
