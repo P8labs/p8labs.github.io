@@ -2,32 +2,152 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://p8labs.in</loc>
-    <lastmod>2026-02-09T12:44:42.379Z</lastmod>
+    <lastmod>2026-03-21T06:02:59.262Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://p8labs.in/about</loc>
-    <lastmod>2026-02-09T12:44:42.379Z</lastmod>
+    <lastmod>2026-03-21T06:02:59.262Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://p8labs.in/products</loc>
-    <lastmod>2026-02-09T12:44:42.379Z</lastmod>
+    <lastmod>2026-03-21T06:02:59.262Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://p8labs.in/build</loc>
+    <lastmod>2026-03-21T06:02:59.262Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://p8labs.in/contact</loc>
+    <lastmod>2026-03-21T06:02:59.262Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://p8labs.in/terms</loc>
-    <lastmod>2026-02-09T12:44:42.379Z</lastmod>
+    <lastmod>2026-03-21T06:02:59.262Z</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://p8labs.in/dmca</loc>
-    <lastmod>2026-02-09T12:44:42.379Z</lastmod>
+    <lastmod>2026-03-21T06:02:59.262Z</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://p8labs.in/product/trackion</loc>
+    <lastmod>2026-03-21T06:02:59.262Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://p8labs.in/product/dxon</loc>
+    <lastmod>2026-03-21T06:02:59.262Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://p8labs.in/product/dockless</loc>
+    <lastmod>2026-03-21T06:02:59.262Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://p8labs.in/product/foxd</loc>
+    <lastmod>2026-03-21T06:02:59.262Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://p8labs.in/product/tsbin-locam</loc>
+    <lastmod>2026-03-21T06:02:59.262Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://p8labs.in/product/tsbin-mail</loc>
+    <lastmod>2026-03-21T06:02:59.262Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://p8labs.in/product/tsbin</loc>
+    <lastmod>2026-03-21T06:02:59.262Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://p8labs.in/product/tsbin-paper</loc>
+    <lastmod>2026-03-21T06:02:59.262Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://p8labs.in/product/jocasta</loc>
+    <lastmod>2026-03-21T06:02:59.262Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://p8labs.in/product/linkey</loc>
+    <lastmod>2026-03-21T06:02:59.262Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://p8labs.in/product/statstream</loc>
+    <lastmod>2026-03-21T06:02:59.262Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://p8labs.in/product/sso-service</loc>
+    <lastmod>2026-03-21T06:02:59.262Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://p8labs.in/product/sangeet</loc>
+    <lastmod>2026-03-21T06:02:59.262Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://p8labs.in/product/stock-charts</loc>
+    <lastmod>2026-03-21T06:02:59.262Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://p8labs.in/product/bhagwad-gita-api</loc>
+    <lastmod>2026-03-21T06:02:59.262Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://p8labs.in/product/rainbow</loc>
+    <lastmod>2026-03-21T06:02:59.262Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://p8labs.in/product/build-journal</loc>
+    <lastmod>2026-03-21T06:02:59.262Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://p8labs.in/product/gitpaste</loc>
+    <lastmod>2026-03-21T06:02:59.262Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>

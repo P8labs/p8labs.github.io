@@ -1,4 +1,10 @@
+# robots.txt for https://p8labs.in
+
 User-agent: *
 Allow: /
 
+# Canonical sitemap location
 Sitemap: https://p8labs.in/sitemap.xml
+
+# Preferred host
+Host: p8labs.in
