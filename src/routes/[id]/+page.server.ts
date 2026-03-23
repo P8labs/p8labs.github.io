@@ -9,9 +9,5 @@ export const load: PageServerLoad = ({ params }) => {
     error(404, "Product not found");
   }
 
-  if (product.pagesEnabled) {
-    error(404, "Project page is served by GitHub Pages");
-  }
-
   redirect(302, product.url);
 };

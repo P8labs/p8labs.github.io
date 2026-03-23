@@ -3,7 +3,6 @@ export interface Product {
   name: string;
   category: string;
   status: "active" | "stable" | "prototype" | "archived";
-  pagesEnabled?: boolean;
   url: string;
   github?: string;
   description?: string;
@@ -28,7 +27,6 @@ const slugify = (value: string): string =>
 const defineProduct = (product: Product): Product => ({
   ...product,
   id: product.id ?? slugify(product.name),
-  pagesEnabled: product.pagesEnabled ?? false,
 });
 
 export const products: Product[] = [
@@ -48,7 +46,6 @@ export const products: Product[] = [
     url: "https://github.com/P8labs/dxon",
     description:
       "A small tool to spin up dev containers quickly. nothing fancy. just simple environments so your host system doesn't get polluted.",
-    pagesEnabled: true,
   }),
   defineProduct({
     name: "dockless",

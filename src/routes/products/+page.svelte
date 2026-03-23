@@ -67,9 +67,6 @@
   const getGroupTitle = (group: string): string =>
     groupTitles[group] ?? `${group} projects`;
 
-  const getDirectHref = (product: Product, productId: string): string =>
-    product.pagesEnabled ? `https://p8labs.in/${productId}` : `/${productId}`;
-
   const productsCollectionSchema = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
@@ -168,9 +165,8 @@
               <a href={`/product/${productId}`} class="action action-primary"
                 >README</a
               >
-              <a
-                href={getDirectHref(product, productId)}
-                class="action action-secondary">Direct</a
+              <a href={`/${productId}`} class="action action-secondary"
+                >Direct</a
               >
               <a
                 href={product.url}
@@ -241,11 +237,8 @@
                 <a href={`/product/${productId}`} class="action action-primary"
                   >README</a
                 >
-                <a
-                  href={getDirectHref(product, productId)}
-                  class="action action-secondary"
-                >
-                  Direct</a
+                <a href={`/${productId}`} class="action action-secondary"
+                  >Direct</a
                 >
                 <a
                   href={product.url}
