@@ -10,7 +10,7 @@ export const load: PageServerLoad = ({ params }) => {
   }
 
   if (product.pagesEnabled) {
-    redirect(302, `/product/${params.id}`);
+    error(404, "Project page is served by GitHub Pages");
   }
 
   redirect(302, product.url);
