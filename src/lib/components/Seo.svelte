@@ -50,6 +50,28 @@
     name: "P8labs",
     url: "https://p8labs.in",
     inLanguage: "en",
+    hasPart: [
+      {
+        "@type": "SiteNavigationElement",
+        name: "Build With P8labs",
+        url: "https://p8labs.in/build",
+      },
+      {
+        "@type": "SiteNavigationElement",
+        name: "Products",
+        url: "https://p8labs.in/products",
+      },
+      {
+        "@type": "SiteNavigationElement",
+        name: "About Us",
+        url: "https://p8labs.in/about",
+      },
+      {
+        "@type": "SiteNavigationElement",
+        name: "Contact",
+        url: "https://p8labs.in/contact",
+      },
+    ],
     publisher: {
       "@type": "Organization",
       name: "P8labs",

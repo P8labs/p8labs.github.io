@@ -42,6 +42,7 @@
         name: project.name,
         url: `https://p8labs.in/product/${getProductId(project)}`,
         applicationCategory: project.category,
+        operatingSystem: "Web, Linux, macOS, Windows",
       },
     })),
   };
@@ -74,6 +75,12 @@
           <a href="/products" class="btn btn-secondary">Explore Products</a>
           <a href="/contact" class="btn btn-ghost">Contact</a>
         </div>
+        <ul class="quick-links" aria-label="Quick links">
+          <li><a href="/build">Build</a></li>
+          <li><a href="/products">Products</a></li>
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
       </section>
     </div>
   </div>
@@ -296,6 +303,31 @@
     display: flex;
     gap: 0.7rem;
     flex-wrap: wrap;
+  }
+
+  .quick-links {
+    margin: 0.9rem 0 0;
+    padding-left: 1.1rem;
+    color: #4f4f4f;
+    display: grid;
+    gap: 0.3rem;
+    max-width: 18rem;
+  }
+
+  .quick-links li {
+    line-height: 1.4;
+  }
+
+  .quick-links a {
+    color: #5e3f20;
+    text-decoration: underline;
+    text-decoration-color: rgba(94, 63, 32, 0.45);
+    text-underline-offset: 2px;
+    font-weight: 600;
+  }
+
+  .quick-links a:hover {
+    text-decoration-color: rgba(94, 63, 32, 0.8);
   }
 
   .btn {
